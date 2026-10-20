@@ -1,0 +1,6 @@
+__pycache__/
+.DS_Store
+feature_cache/
+*.pdf
+*.pptx
+predict_output_홍길동.csv

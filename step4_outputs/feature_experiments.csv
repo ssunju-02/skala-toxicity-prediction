@@ -1,0 +1,16 @@
+group,experiment,n_features,OOF_AUC,fold_std,time(s)
+A.조합,ECFP만,1024,0.8541,0.0094,16.8902
+A.조합,FCFP만,1024,0.867,0.0099,16.2093
+A.조합,PTFP만,1024,0.8581,0.0095,17.3694
+A.조합,descriptor 4개만,4,0.6616,0.0109,8.7632
+A.조합,ECFP+FCFP+PTFP,3072,0.8769,0.0094,22.0458
+A.조합,FP 전체+descriptor (=베이스라인),3076,0.886,0.0103,21.8104
+B.RDKit,RDKit descriptor만,217,0.8735,0.0105,13.7836
+B.RDKit,RDKit descriptor + desc4,221,0.8733,0.0127,13.9128
+B.RDKit,베이스라인 + RDKit,3293,0.8862,0.0107,24.2527
+B.RDKit,베이스라인 + RDKit + MACCS,3460,0.8852,0.0113,24.7686
+C.Selection,희귀/상수 bit 제거 (1%~99%),2564,0.8847,0.0111,23.6109
+C.Selection,Importance 상위 300개,300,0.8794,0.0127,28.997
+C.Selection,Importance 상위 500개,500,0.8833,0.0109,30.1117
+C.Selection,Importance 상위 1000개,1000,0.8857,0.0105,34.0898
+C.Selection,Importance 상위 1500개,1500,0.8848,0.0103,35.8318

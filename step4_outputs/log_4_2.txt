@@ -1,0 +1,91 @@
+feature set: 베이스라인 + RDKit / selection=None
+fold별 사용 feature 수: [3293, 3293, 3293, 3293, 3293]
+
+[1] LightGBM 튜닝 (30 trials)
+   LGBM trial  0: AUC 0.8858 (best 0.8858)
+   LGBM trial  1: AUC 0.8803 (best 0.8858)
+   LGBM trial  2: AUC 0.8864 (best 0.8864)
+   LGBM trial  3: AUC 0.8864 (best 0.8864)
+   LGBM trial  4: AUC 0.8762 (best 0.8864)
+   LGBM trial  5: AUC 0.8563 (best 0.8864)
+   LGBM trial  6: AUC 0.8807 (best 0.8864)
+   LGBM trial  7: AUC 0.8330 (best 0.8864)
+   LGBM trial  8: AUC 0.8832 (best 0.8864)
+   LGBM trial  9: AUC 0.8812 (best 0.8864)
+   LGBM trial 10: AUC 0.8812 (best 0.8864)
+   LGBM trial 11: AUC 0.8828 (best 0.8864)
+   LGBM trial 12: AUC 0.8612 (best 0.8864)
+   LGBM trial 13: AUC 0.8861 (best 0.8864)
+   LGBM trial 14: AUC 0.8844 (best 0.8864)
+   LGBM trial 15: AUC 0.8612 (best 0.8864)
+   LGBM trial 16: AUC 0.8878 (best 0.8878)
+   LGBM trial 17: AUC 0.8871 (best 0.8878)
+   LGBM trial 18: AUC 0.8858 (best 0.8878)
+   LGBM trial 19: AUC 0.8868 (best 0.8878)
+   LGBM trial 20: AUC 0.8870 (best 0.8878)
+   LGBM trial 21: AUC 0.8868 (best 0.8878)
+   LGBM trial 22: AUC 0.8878 (best 0.8878)
+   LGBM trial 23: AUC 0.8874 (best 0.8878)
+   LGBM trial 24: AUC 0.8867 (best 0.8878)
+   LGBM trial 25: AUC 0.8864 (best 0.8878)
+   LGBM trial 26: AUC 0.8868 (best 0.8878)
+   LGBM trial 27: AUC 0.8875 (best 0.8878)
+   LGBM trial 28: AUC 0.8856 (best 0.8878)
+   LGBM trial 29: AUC 0.8876 (best 0.8878)
+  → LGBM best AUC 0.8878 (1750s)
+    {'n_estimators': 1000, 'learning_rate': 0.010625427816192527, 'num_leaves': 112, 'max_depth': 11, 'min_child_samples': 8, 'colsample_bytree': 0.28272349726121193, 'subsample': 0.6392394594245792, 'reg_alpha': 0.012960326288600586, 'reg_lambda': 0.008729996387969877}
+
+[2] XGBoost 튜닝 (20 trials)
+   XGB trial  0: AUC 0.8840 (best 0.8840)
+   XGB trial  1: AUC 0.8841 (best 0.8841)
+   XGB trial  2: AUC 0.8735 (best 0.8841)
+   XGB trial  3: AUC 0.8844 (best 0.8844)
+   XGB trial  4: AUC 0.8807 (best 0.8844)
+   XGB trial  5: AUC 0.8807 (best 0.8844)
+   XGB trial  6: AUC 0.8422 (best 0.8844)
+   XGB trial  7: AUC 0.8872 (best 0.8872)
+   XGB trial  8: AUC 0.8251 (best 0.8872)
+   XGB trial  9: AUC 0.8668 (best 0.8872)
+   XGB trial 10: AUC 0.8856 (best 0.8872)
+   XGB trial 11: AUC 0.8865 (best 0.8872)
+   XGB trial 12: AUC 0.8871 (best 0.8872)
+   XGB trial 13: AUC 0.8854 (best 0.8872)
+   XGB trial 14: AUC 0.8866 (best 0.8872)
+   XGB trial 15: AUC 0.8875 (best 0.8875)
+   XGB trial 16: AUC 0.8856 (best 0.8875)
+   XGB trial 17: AUC 0.8847 (best 0.8875)
+   XGB trial 18: AUC 0.8866 (best 0.8875)
+   XGB trial 19: AUC 0.8840 (best 0.8875)
+  → XGB best AUC 0.8875 (694s)
+    {'n_estimators': 800, 'learning_rate': 0.03608169758139446, 'max_depth': 10, 'min_child_weight': 6.819685955532905, 'colsample_bytree': 0.5645807040392243, 'subsample': 0.9102522252905061, 'gamma': 0.013724127486072038, 'reg_lambda': 3.6359086293396428}
+
+[3] 최종 모델 OOF 생성
+  LGBM  OOF AUC 0.8880
+  XGB   OOF AUC 0.8879
+  RF    OOF AUC 0.8791
+
+[4] 앙상블
+ w_LGBM  w_XGB  w_RF  OOF_AUC
+    0.5    0.5   0.0   0.8888
+    0.6    0.4   0.0   0.8887
+    0.4    0.5   0.1   0.8887
+    0.4    0.6   0.0   0.8887
+    0.5    0.4   0.1   0.8887
+    0.3    0.6   0.1   0.8887
+    0.7    0.3   0.0   0.8887
+    0.2    0.7   0.1   0.8886
+    0.3    0.7   0.0   0.8886
+    0.6    0.3   0.1   0.8886
+
+================================================================================
+  STEP 4 최종 요약 (5-Fold OOF)
+================================================================================
+                               AUC      F1  Accuracy
+STEP3 베이스라인 LGBM (thr 0.5)  0.8860  0.8217    0.8040
+튜닝 LGBM (thr 0.5)           0.8880  0.8244    0.8051
+튜닝 XGB (thr 0.5)            0.8879  0.8224    0.8032
+앙상블 (thr 0.5)               0.8888  0.8246    0.8055
+앙상블 (F1 최적 thr 0.41)        0.8888  0.8281    0.8023
+앙상블 (Acc 최적 thr 0.54)       0.8888  0.8227    0.8064
+
+저장: /Users/ssunju/Desktop/SKALA/MiniProject/step4_outputs/final_config.json

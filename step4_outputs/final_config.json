@@ -1,0 +1,90 @@
+{
+  "feature": {
+    "groups": [
+      "ecfp",
+      "fcfp",
+      "ptfp",
+      "desc",
+      "rdkit"
+    ],
+    "selection": null,
+    "oof_auc": 0.8862060224872558,
+    "experiment": "베이스라인 + RDKit",
+    "group_kfold_auc": 0.8833794718922026
+  },
+  "lgbm_params": {
+    "n_estimators": 1000,
+    "learning_rate": 0.010625427816192527,
+    "num_leaves": 112,
+    "max_depth": 11,
+    "min_child_samples": 8,
+    "colsample_bytree": 0.28272349726121193,
+    "subsample": 0.6392394594245792,
+    "reg_alpha": 0.012960326288600586,
+    "reg_lambda": 0.008729996387969877
+  },
+  "lgbm_seeds": [
+    42,
+    7,
+    2024
+  ],
+  "xgb_params": {
+    "n_estimators": 800,
+    "learning_rate": 0.03608169758139446,
+    "max_depth": 10,
+    "min_child_weight": 6.819685955532905,
+    "colsample_bytree": 0.5645807040392243,
+    "subsample": 0.9102522252905061,
+    "gamma": 0.013724127486072038,
+    "reg_lambda": 3.6359086293396428
+  },
+  "xgb_seeds": [
+    42,
+    7,
+    2024
+  ],
+  "rf_params": {
+    "n_estimators": 800,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1
+  },
+  "weights": {
+    "LGBM": 0.5,
+    "XGB": 0.5,
+    "RF": 0.0
+  },
+  "threshold_f1": 0.4100000000000002,
+  "threshold_acc": 0.5400000000000003,
+  "oof": {
+    "STEP3 베이스라인 LGBM (thr 0.5)": {
+      "AUC": 0.886,
+      "F1": 0.8217,
+      "Accuracy": 0.804
+    },
+    "튜닝 LGBM (thr 0.5)": {
+      "AUC": 0.888,
+      "F1": 0.8244,
+      "Accuracy": 0.8051
+    },
+    "튜닝 XGB (thr 0.5)": {
+      "AUC": 0.8879,
+      "F1": 0.8224,
+      "Accuracy": 0.8032
+    },
+    "앙상블 (thr 0.5)": {
+      "AUC": 0.8888,
+      "F1": 0.8246,
+      "Accuracy": 0.8055
+    },
+    "앙상블 (F1 최적 thr 0.41)": {
+      "AUC": 0.8888,
+      "F1": 0.8281,
+      "Accuracy": 0.8023
+    },
+    "앙상블 (Acc 최적 thr 0.54)": {
+      "AUC": 0.8888,
+      "F1": 0.8227,
+      "Accuracy": 0.8064
+    }
+  }
+}

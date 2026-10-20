@@ -1,0 +1,13 @@
+{
+  "groups": [
+    "ecfp",
+    "fcfp",
+    "ptfp",
+    "desc",
+    "rdkit"
+  ],
+  "selection": null,
+  "oof_auc": 0.8862060224872558,
+  "experiment": "베이스라인 + RDKit",
+  "group_kfold_auc": 0.8833794718922026
+}
